@@ -12,7 +12,7 @@ runs:
     - name: Checkout index action
       uses: actions/checkout@v3
       with:
-        repository: index-repo
+        repository: venkyy8/index-repo  # ✅ Corrected line
         ref: main
         path: ./venky
 
