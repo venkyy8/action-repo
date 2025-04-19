@@ -1,5 +1,6 @@
 name: 'reusable workflow'
 description: "A reusable workflow for building and sending Teams notifications"
+
 inputs:
   accesstoken:
     description: "GitHub access token"
