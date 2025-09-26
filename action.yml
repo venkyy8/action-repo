@@ -1,27 +1,25 @@
-name: 'Reusable Email Workflow'
-description: "A reusable workflow for sending notification emails via Node.js"
+name: 'Build with Maven'
+description: 'Run Maven build by updating apt and installing Maven'
+
+inputs:
+  APT_UPDATE_CMD:
+    description: 'Command to update apt'
+    required: true
+    default: 'sudo apt-get update'
+  APT_INSTALL_MAVEN_CMD:
+    description: 'Command to install Maven'
+    required: true
+    default: 'sudo apt-get install maven -y'
+  PROJECT_DIR:
+    description: 'Directory of the Maven project'
+    required: true
+    default: '.'
+  MAVEN_GOAL:
+    description: 'Maven goal to run'
+    required: true
+    default: 'install'
 
 runs:
-  using: "composite"
-  steps:
-    - name: Checkout index-repo
-      uses: actions/checkout@v3
-      with:
-        repository: venkyy8/index-repo
-        ref: main
-        path: ./venky
+  using: 'node16'
+  main: 'index.js'
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '18'
-
-    - name: Install dependencies
-      run: npm install
-      shell: bash
-      working-directory: ./venky
-
-    - name: Run index.js to send email
-      run: node index.js
-      shell: bash
-      working-directory: ./venky
