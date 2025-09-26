@@ -1,1 +1,1 @@
-# It's Still under develepment
+# It's Still under development
