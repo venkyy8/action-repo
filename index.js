@@ -17,6 +17,9 @@ async function run() {
     // Run Maven goal
     await exec.exec(`mvn ${mavenGoal}`, [], { cwd: projectDir });
 
+    // Step 4: Echo final message
+    await exec.exec('echo "✅ Build completed successfully!"');
+
   } catch (error) {
     core.setFailed(`Action failed with error: ${error.message}`);
   }
